@@ -5,18 +5,18 @@ public class Main {
 
         System.out.println("Задание 1");
         printLP(2022);
-        printLP(2021);
+        printLP(2020);
 
 
         System.out.println("Задание 2");
-        Info(1,2022);
-        Info(0,2020);
+        printInfo(1,2022);
+        printInfo(0,2020);
 
 
         System.out.println("Задание 3");
-        delivery(10);
-        delivery(100);
-        delivery(30);
+        calcDelDays(10);
+        calcDelDays(110);
+        calcDelDays(30);
     }
 
     private static boolean isLP(int year) {
@@ -31,24 +31,24 @@ public class Main {
         }
     }
 
-    private static void Info(int OS, int year) {
-        String OsName = defileOsName(OS);
-        String OsVer = App(year);
+    private static void printInfo(int mobileOS, int year) {
+        String osName = defileOsName(mobileOS);
+        String osVer = defineApp(year);
 
-        System.out.println("Для ОС " + OsName + " установите " + OsVer + " версию.");
+        System.out.println("Для ОС " + osName + " установите " + osVer + " версию.");
     }
 
-    private static String defileOsName(int OS) {
-        if (OS == 0) {
+    private static String defileOsName(int mobileOS) {
+        if (mobileOS == 0) {
             return "IOS";
-        } else if (OS == 1) {
+        } else if (mobileOS == 1) {
             return "Android";
         } else {
             return "Unknown ";
         }
     }
 
-    private static String App(int year) {
+    private static String defineApp(int year) {
         int currentYear = LocalDate.now().getYear();
 
         if (currentYear != year) {
@@ -60,21 +60,22 @@ public class Main {
     }
 
     private static int calcDelDays (int dist) {
-        int delDays = 0;
+
+
         if (dist <= 20) {
-            delDays =1;
-        } else if (dist <=60) {
-            delDays = 2;
-        } else if (dist <=100) {
-            delDays = 3;
-        } else { delDays = 0; }
+            System.out.println("Потребуется дней для доставки: " + 1);
+        } else if (dist <= 60) {
+            System.out.println("Потребуется дней для доставки: " + 2);
+        } else if (dist <= 100) {
+            System.out.println("Потребуется дней для доставки: " + 3);
+        } else  {
+            System.out.println("Доставки нет");
+        }
 
-        return  delDays;
+        return dist;
     }
 
-    private  static void delivery (int dist) {
-        System.out.println("Потребуется дней для доставки: " + calcDelDays(dist));
-    }
+
 
 
 }
