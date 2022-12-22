@@ -14,9 +14,9 @@ public class Main {
 
 
         System.out.println("Задание 3");
-        calcDelDays(10);
-        calcDelDays(110);
-        calcDelDays(30);
+        printDeliveryDays(10);
+        printDeliveryDays(110);
+        printDeliveryDays(30);
     }
 
     private static boolean isLP(int year) {
@@ -60,19 +60,30 @@ public class Main {
     }
 
     private static int calcDelDays (int dist) {
-
+        int deliveryDays;
 
         if (dist <= 20) {
-            System.out.println("Потребуется дней для доставки: " + 1);
+            deliveryDays = 1;
         } else if (dist <= 60) {
-            System.out.println("Потребуется дней для доставки: " + 2);
+            deliveryDays = 2;
         } else if (dist <= 100) {
-            System.out.println("Потребуется дней для доставки: " + 3);
+            deliveryDays = 3;
         } else  {
-            System.out.println("Доставки нет");
+            deliveryDays = 0;
         }
 
-        return dist;
+        return deliveryDays;
+    }
+
+    private static void printDeliveryDays (int dist) {
+        if (calcDelDays(dist) <=0 ) {
+            System.out.println("Доставки нет");
+        } else {
+
+            System.out.println("Потребуется дней для доставки: " + calcDelDays(dist));
+        }
+
+
     }
 
 
